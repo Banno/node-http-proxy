@@ -1,5 +1,6 @@
 node_modules
 *.swp
+.DS_Store
 cov
 atest.js
 notes
