@@ -17,6 +17,7 @@
     "follow-redirects": "^1.0.0"
   },
   "devDependencies": {
+    "@banno/js-release-tools": "^3.11.0",
     "async": "^3.0.0",
     "auto-changelog": "^1.15.0",
     "concat-stream": "^2.0.0",
@@ -31,7 +32,9 @@
   },
   "scripts": {
     "mocha": "mocha test/*-test.js",
-    "test": "nyc --reporter=text --reporter=lcov npm run mocha"
+    "test": "nyc --reporter=text --reporter=lcov npm run mocha",
+    "release": "release",
+    "publish:cd": "yarn build && ./node_modules/.bin/publish"
   },
   "engines": {
     "node": ">=8.0.0"
