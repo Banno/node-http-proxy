@@ -17,6 +17,7 @@
     "follow-redirects": "^1.0.0"
   },
   "devDependencies": {
+    "@types/node": "^16.11.7",
     "@banno/js-release-tools": "^3.11.0",
     "async": "^3.0.0",
     "auto-changelog": "^1.15.0",
