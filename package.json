@@ -35,7 +35,7 @@
     "mocha": "mocha test/*-test.js",
     "test": "nyc --reporter=text --reporter=lcov npm run mocha",
     "release": "release",
-    "publish:cd": "yarn build && ./node_modules/.bin/publish"
+    "publish:cd": "./node_modules/.bin/publish"
   },
   "engines": {
     "node": ">=8.0.0"
