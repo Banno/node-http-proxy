@@ -167,6 +167,9 @@ describe('lib/http-proxy.js', function() {
         proxy.on('error', function (err, req, res) {
           expect(err).to.be.an(Error);
           expect(err.toString()).to.be('Error: unable to verify the first certificate')
+          res.end()
+          source.close()
+          proxy.close()
           done();
         })
 
