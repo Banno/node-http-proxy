@@ -1,5 +1,4 @@
 var httpProxy = require('../lib/http-proxy'),
-    semver    = require('semver'),
     expect    = require('expect.js'),
     http      = require('http')
     https     = require('https'),
@@ -167,11 +166,7 @@ describe('lib/http-proxy.js', function() {
 
         proxy.on('error', function (err, req, res) {
           expect(err).to.be.an(Error);
-          if (semver.gt(process.versions.node, '0.12.0')) {
-            expect(err.toString()).to.be('Error: self signed certificate')
-          } else {
-            expect(err.toString()).to.be('Error: DEPTH_ZERO_SELF_SIGNED_CERT')
-          }
+          expect(err.toString()).to.be('Error: unable to verify the first certificate')
           done();
         })
 
