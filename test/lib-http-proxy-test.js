@@ -18,7 +18,7 @@ Object.defineProperty(gen, 'port', {
   }
 });
 
-describe('lib/http-proxy.js', function() {
+describe.only('lib/http-proxy.js', function() {
   describe('#createProxyServer', function() {
     it.skip('should throw without options', function() {
       var error;
@@ -52,8 +52,9 @@ describe('lib/http-proxy.js', function() {
       var source = http.createServer(function(req, res) {
         expect(req.method).to.eql('GET');
         expect(req.headers.host.split(':')[1]).to.eql(ports.proxy);
-        source.close();
+        source.close()
         proxy.close();
+        res.end();
         done();
       });
 
@@ -108,6 +109,7 @@ describe('lib/http-proxy.js', function() {
         expect(req.method).to.eql('POST');
         expect(req.headers['x-forwarded-for']).to.eql('127.0.0.1');
         expect(req.headers.host.split(':')[1]).to.eql(ports.proxy);
+        res.end()
         source.close();
         proxy.close();
         done();
@@ -194,7 +196,7 @@ describe('lib/http-proxy.js', function() {
 
   describe('#createProxyServer setting the correct timeout value', function () {
     it('should hang up the socket at the timeout', function (done) {
-      this.timeout(30);
+      this.timeout(50);
       var ports = { source: gen.port, proxy: gen.port };
       var proxy = httpProxy.createProxyServer({
         target: 'http://127.0.0.1:' + ports.source,
@@ -243,6 +245,7 @@ describe('lib/http-proxy.js', function() {
       var source = http.createServer(function(req, res) {
         expect(req.method).to.eql('GET');
         expect(req.headers.host.split(':')[1]).to.eql(ports.source);
+        res.end();
         source.close();
         proxy.close();
         done();
@@ -416,6 +419,7 @@ describe('lib/http-proxy.js', function() {
       client.on('error', function (err) {
         expect(err).to.be.an(Error);
         proxyServer.close();
+        server.close();
         done();
       });
     });
@@ -439,8 +443,10 @@ describe('lib/http-proxy.js', function() {
 
         client.on('outgoing', function (data) {
           expect(data).to.be('Hello over websockets');
+          destiny.close();
           proxyServer.close();
           server.close();
+          client.close();
           done();
         });
       }
@@ -491,7 +497,7 @@ describe('lib/http-proxy.js', function() {
 
     });
 
-    it.only('should pass all set-cookie headers to client', function (done) {
+    it('should pass all set-cookie headers to client', function (done) {
       var ports = { source: gen.port, proxy: gen.port };
       var proxy = httpProxy.createProxyServer({
         target: 'ws://127.0.0.1:' + ports.source,
@@ -507,13 +513,12 @@ describe('lib/http-proxy.js', function() {
           expect(res.headers['set-cookie'].length).to.be(2);
           proxyServer.close()
           destiny.close()
-          client.close()
           done();
         });
+        client.on('open', () => client.close())
       });
 
       destiny.on('headers', function (headers) {
-        console.log('hey')
         headers.push('Set-Cookie: test1=test1');
         headers.push('Set-Cookie: test2=test2');
       });
