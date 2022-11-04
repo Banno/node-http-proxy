@@ -2,7 +2,7 @@ var common = require('../lib/http-proxy/common'),
     url = require('url'),
     expect = require('expect.js');
 
-describe.only('lib/http-proxy/common.js', function () {
+describe('lib/http-proxy/common.js', function () {
   describe('#setupOutgoing', function () {
     it('should setup the correct headers', function () {
       var outgoing = {};

@@ -9,7 +9,7 @@ describe('lib/http-proxy/passes/ws-incoming.js', function () {
         method: 'DELETE',
         headers: {}
       },
-      stubSocket = { 
+      stubSocket = {
         destroy: function () {
           // Simulate Socket.destroy() method when call
           destroyCalled = true;

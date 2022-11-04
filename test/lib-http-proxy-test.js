@@ -18,7 +18,7 @@ Object.defineProperty(gen, 'port', {
   }
 });
 
-describe.only('lib/http-proxy.js', function() {
+describe('lib/http-proxy.js', function() {
   describe('#createProxyServer', function() {
     it.skip('should throw without options', function() {
       var error;
