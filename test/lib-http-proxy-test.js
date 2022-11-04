@@ -428,7 +428,7 @@ describe('lib/http-proxy.js', function() {
       }),
       proxyServer = proxy.listen(ports.proxy),
       server = http.createServer(),
-      destiny = io.listen(server);
+      destiny = new io.Server(server);
 
       function startSocketIo() {
         var client = ioClient.connect('ws://127.0.0.1:' + ports.proxy);
@@ -447,7 +447,7 @@ describe('lib/http-proxy.js', function() {
       server.listen(ports.source);
       server.on('listening', startSocketIo);
 
-      destiny.sockets.on('connection', function (socket) {
+      destiny.on('connection', function (socket) {
         socket.on('incoming', function (msg) {
           expect(msg).to.be('hello there');
           socket.emit('outgoing', 'Hello over websockets');
@@ -464,7 +464,7 @@ describe('lib/http-proxy.js', function() {
       });
       var proxyServer = proxy.listen(ports.proxy);
       var server = http.createServer();
-      var destiny = io.listen(server);
+      var destiny = new io.Server(server);
 
       function startSocketIo() {
         var client = ioClient.connect('ws://127.0.0.1:' + ports.proxy, {rejectUnauthorized: null});
