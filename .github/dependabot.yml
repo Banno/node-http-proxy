@@ -8,3 +8,29 @@ updates:
     ignore:
       - dependency-name: "*"
         update-types: ["version-update:semver-major"]
+    open-pull-requests-limit: 20
+    commit-message:
+      prefix: "build"
+      prefix-development: "build"
+      include: "scope"
+    groups:
+      # This is the name of your group, it will be used in PR titles and branch names
+      lint-ts-dependencies:
+        # Currently a max of 10
+        patterns:
+          - "@types/node"
+          - "*eslint*"
+          - "lint-staged"
+          - "husky"
+          - "tsnode"
+          - "typescript"
+      testing-dependencies:
+        patterns:
+          - "@types/jasmine"
+          - "jasmine*"
+          - "c8"
+          - "esmock"
+          - "@types/nock"
+          - "nock"
+          - "nodemon"
+          - "supertest"
