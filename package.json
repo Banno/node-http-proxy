@@ -12,13 +12,13 @@
   ],
   "main": "index.js",
   "dependencies": {
-    "eventemitter3": "^4.0.0",
+    "eventemitter3": "^5.0.0",
     "follow-redirects": "^1.0.0",
     "requires-port": "^1.0.0"
   },
   "devDependencies": {
-    "@banno/js-release-tools": "^3.11.0",
-    "@types/node": "^16.18.38",
+    "@banno/js-release-tools": "^4.0.0",
+    "@types/node": "^18.17.0",
     "async": "^3.0.0",
     "concat-stream": "^2.0.0",
     "expect.js": "~0.3.1",
