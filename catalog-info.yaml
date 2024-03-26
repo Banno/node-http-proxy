@@ -1,0 +1,12 @@
+# Documentation: https://github.com/Banno/backstage/blob/main/README.md
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: "node-http-proxy"
+  description: "A full-featured http proxy for node.js"
+  annotations:
+    github.com/project-slug: "banno/node-http-proxy"
+spec:
+  type: "service"
+  owner: "group:banno/prism"
+  lifecycle: "production"
