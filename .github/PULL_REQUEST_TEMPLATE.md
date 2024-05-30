@@ -1,4 +1,4 @@
-^ First, use a descriptive title for your PR. It should not have the issue number.
+^ Use a descriptive title for your PR. Optionally, include the relevant Jira ticket number.
  
 ## What It Does
  
@@ -8,7 +8,7 @@ Consider providing an overview of why the work is taking place (with any relevan
  
 Also explain *how* it was implemented, in general terms.
  
-Reference the Github issues this is fixing/closing, or that are related, using the appropriate [Github/Waffle keywords](https://github.com/waffleio/waffle.io/wiki/Recommended-Workflow-Using-Pull-Requests-&-Automatic-Work-Tracking).
+Reference the Jira issues this is addressing.
  
 ## How To Test
  
