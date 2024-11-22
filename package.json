@@ -17,7 +17,7 @@
     "requires-port": "^1.0.0"
   },
   "devDependencies": {
-    "@banno/js-release-tools": "^3.11.0",
+    "@banno/js-release-tools": "^4.13.0",
     "@types/node": "^16.18.40",
     "async": "^3.0.0",
     "concat-stream": "^2.0.0",
@@ -39,7 +39,7 @@
     "publish:cd": "./node_modules/.bin/publish"
   },
   "engines": {
-    "node": ">=8.0.0"
+    "node": ">=18.9.0"
   },
   "license": "MIT"
 }
