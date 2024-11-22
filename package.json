@@ -39,7 +39,7 @@
     "publish:cd": "./node_modules/.bin/publish"
   },
   "engines": {
-    "node": ">=8.0.0"
+    "node": ">=18.9.0"
   },
   "license": "MIT"
 }
