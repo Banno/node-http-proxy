@@ -13,19 +13,19 @@
   "main": "index.js",
   "dependencies": {
     "eventemitter3": "^4.0.0",
-    "follow-redirects": "^1.15.6",
+    "follow-redirects": "^1.15.9",
     "requires-port": "^1.0.0"
   },
   "devDependencies": {
     "@banno/js-release-tools": "^4.14.0",
-    "@types/node": "^16.18.40",
-    "async": "^3.0.0",
+    "@types/node": "^16.18.116",
+    "async": "^3.2.6",
     "concat-stream": "^2.0.0",
     "expect.js": "~0.3.1",
-    "mocha": "^10.2.0",
-    "nyc": "^15.1.0",
+    "mocha": "^10.7.3",
+    "nyc": "^17.1.0",
     "socket.io": "^4.8.1",
-    "socket.io-client": "^4.7.5",
+    "socket.io-client": "^4.8.1",
     "sse": "0.0.8",
     "ws": "^8.17.1"
   },
